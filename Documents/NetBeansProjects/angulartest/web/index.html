@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="angular.js"></script>
+        <style>
+            .select{
+                color:red;
+                font-size: 16px;
+            }  
+        </style>
+    </head>
+    <body>
+        <div ng-app="myapp" ng-controller="myctr" >
+            <div ng-include="'menu.html'"></div>
+            <input type="text" ng-model="nom" ng-required="true">
+            
+            {{nom}}
+            Sexe:<select ng-model="sexe" ng-options="x for x in sexe" class="select">
+               
+            </select>   
+            <select ng-model="sexe">
+                <option ng-repeat="x in sexe" class="select">{{x}}</option>
+            </select>
+            <p class="par">voici le contenu de mon fichier welcom</p>
+            {{content}}<br>
+            <p>voici le status de notre service $http</p>
+            statu http:{{status}}<br>
+            Adresse de mon page :{{addr}}<br>
+            <select ng-model="selectedcars" ng-options="x.model for x in cars">
+                you are select:{{selectedcars.model}}<br>
+                your color is:{{selectedcars.color}}
+                
+        </select>
+            <button ng-click="btcount()" type='submit'>save</button>
+            <p>Nombre de click</p>{{nbclick}}<br>
+            <input type='checkbox' ng-checked="touche()">Homme
+            <br>
+            {{nbchek}}
+            <img src="b.jpg" ng-mouseenter="mouseenter($event)" ng-mousemove="mousemouve($event)" ng-mouseleave="mouseleave($event)"/>
+           Mouse enter: {{mouse}}
+            Mouse Move:{{mousem}}
+            Mouse leave :{{mousel}}
+            
+        </div>
+    </body>
+</html>

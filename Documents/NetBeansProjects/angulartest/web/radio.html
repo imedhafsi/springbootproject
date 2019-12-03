@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+      <script src="radio.js"></script>
+      <style>
+          .error-msg{
+              color:red;
+              font-style: italic;
+              font-family: fantasy;
+          }
+      </style>
+    </head>
+    <body>
+        <div ng-app="myapp" ng-controller="myctr">
+            <input type="text" ng-model="nom" ng-required="true" ng-minlength="5" ng-maxlength="9">
+            {{nom|uppercase}}
+            <div ng-include="'menu.html'"></div>
+         choice the language it you want :  
+         <input type="radio" ng-model="java" value="myvar">java
+         <input type="radio" ng-model="C" value="myvar">C#
+         <input type="radio" ng-model="SQL" value="myvar">SQL
+         <div ng-switch="myvar">
+             <div ng-switch-when="java">
+                 <h1>JAVA Language </h1>
+                 <p> Read more about java language .........</p>
+             </div>  
+             <div ng-swith-when="C">
+                 <h1>C# Language</h1>
+                 <p> Read more about C# Language ......</p>
+             </div>
+             <div ng-swith-when="SQL">
+                 <h1>SQL Language</h1>
+                 <p> Read more about SQL Language .....
+                 </p>
+             </div>
+         </div>
+         Sexe:<select ng-model="sel">
+             <option value=""></option>
+             <option value="Homme">Homme</option>
+             <option value="Femme">Femme</option>
+         </select>  
+         <div ng-switch="sel">
+             <div ng-switch-when="Homme">
+                 <h1> Hi Mans !!!!!</h1>
+             </div>
+             <div ng-swith-when="Femme">
+                 <h1>Hi Womens !!!!!!</h1>
+             </div>
+             <div ng-swith-default="">
+                 <h1>Wath is your sexe??</h1>
+             </div>
+         </div> 
+         First Name :<input type="text" ng-model="user.firstname" ng-required="true"><br>
+         Last Name :<input type="text" ng-model="user.lastname" ng-required="true">
+         <button ng-click="reset()"> reset</button><br>
+         Master :{{master}}<br>
+         User :{{user}}<br>
+         <form name="myForm">
+         <input name="myName" ng-model="myName" required ng-minlength="5" ng-maxlength="9">
+<span ng-show="myForm.myName.$touched && myForm.myName.$invalid" class="error-msg">The name is required.</span>
+<span ng-show="myForm.myName.$error.minlength" class="error-msg">min length is 5!!!!</span>
+<span ng-show="myForm.myName.$error.maxlength" class="error-msg"> max length is 9!!!</span>
+         </form>
+        </div>
+      
+    </body>
+</html>
